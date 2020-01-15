@@ -1,0 +1,62 @@
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: postgres-pv-claim
+  labels:
+    app: openwisp-postgres
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: "nfs"
+  resources:
+    requests:
+      storage: {{POSTGRES_STORAGE}}
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: media-pv-claim
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: "nfs"
+  resources:
+    requests:
+      storage: {{MEDIA_STORAGE}}
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: static-pv-claim
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: "nfs"
+  resources:
+    requests:
+      storage: {{STATIC_STORAGE}}
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: html-pv-claim
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: "nfs"
+  resources:
+    requests:
+      storage: {{HTML_STORAGE}}
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: postfix-pv-claim
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: "nfs"
+  resources:
+    requests:
+      storage: {{POSTFIX_STORAGE}}
